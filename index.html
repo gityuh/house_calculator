@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title> 房贷计算器</title>
+
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+    <link rel="stylesheet" href="./dist/css/houseCal.css">
+    <link rel="stylesheet" href="./dist/js/form/selcss.css">
+
+    <script src="./dist/js/jquery-1.7.2.min.js"></script>
+    <script src="./dist/js/form/jquery.cssforms.js"></script>
+    <script src="./dist/js/Chart/Chart.min.js"></script>
+
+</head>
+
+<style type="text/css">
+    .house-content {
+        margin-top: 30px;
+    width: 980px;
+    margin: auto;
+    clear: both;
+}
+</style>
+
+<body>
+
+<div>
+
+    <div class="house-content" id="housediv" >
+        <div class="calculatorhead">
+            <div class="on">个人住房公积金贷款计算器</div>
+            <div class="">提前还款计算器</div>
+            <div class="">购房能力评估计算器</div>
+            <div class="">税费计算器</div>
+        </div>
+        <div id="housecaldiv">
+            <div class="calcontent" style="height:540px;">
+                <div class="calleft" id="calleft1">
+                    <i class="icon-arrow"><span></span></i>
+                    <div class="item-mod item-top hide">
+                        <label class="item-label"><span>还款方式</span></label>
+                        <span>
+                            <input type="radio" name="repaytype" class="int-radio" value="0" checked="true">等额本息
+                        </span>
+                        <span>
+                            <input type="radio" name="repaytype" class="int-radio" value="1">等额本金
+                        </span>
+                    </div>
+
+                    <div class="item-mod">
+                        <label class="item-label"><span>贷款类别</span></label>
+                        <span><input type="radio" name="typeCal" class="int-radio" value="0" checked="true">商业贷款</span>
+                        <span><input type="radio" name="typeCal" class="int-radio" value="1">公积金贷</span>
+                        <span><input type="radio" name="typeCal" class="int-radio" value="2">组合贷</span>
+                    </div>
+
+                    <div id="houseCalInput">
+                        <div class="item-mod">
+                            <label class="item-label"><span>房款总价</span></label>
+                            <div class="textbox">
+                                <input type="text" id="totalMoney" value="180" maxlength="9"><em>万元</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>贷款总额</span></label>
+                            <div class="textbox">
+                                <input type="text" id="dkTotalMoney" value="100" maxlength="9"><em>万元</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>利       率</span></label>
+                            <div class="textbox">
+                                <input type="text" value="4.9" maxlength="9" id="initrate"><em>%</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>按揭年数</span></label>
+                            <div class="textbox">
+                                <select name="jQuery2" class="beautify_input" id="ajYear" style="display: none;">
+                                    <option value="1"> 1年 (12期)</option>
+                                    <option value="2"> 2年 (24期)</option>
+                                    <option value="3"> 3年 (36期)</option>
+                                    <option value="4"> 4年 (48期)</option>
+                                    <option value="5"> 5年 (60期)</option>
+                                    <option value="6"> 6年 (72期)</option>
+                                    <option value="7"> 7年 (84期)</option>
+                                    <option value="8"> 8年 (96期)</option>
+                                    <option value="9"> 9年 (108期)</option>
+                                    <option value="10"> 10年 (120期)</option>
+                                    <option value="11"> 11年 (132期)</option>
+                                    <option value="12"> 12年 (144期)</option>
+                                    <option value="13"> 13年 (156期)</option>
+                                    <option value="14"> 14年 (168期)</option>
+                                    <option value="15"> 15年 (180期)</option>
+                                    <option value="16"> 16年 (192期)</option>
+                                    <option value="17"> 17年 (204期)</option>
+                                    <option value="18"> 18年 (216期)</option>
+                                    <option value="19"> 19年 (228期)</option>
+                                    <option value="20" selected=""> 20年 (240期)</option>
+                                    <option value="21"> 21年 (252期)</option>
+                                    <option value="22"> 22年 (264期)</option>
+                                    <option value="23"> 23年 (276期)</option>
+                                    <option value="24"> 24年 (288期)</option>
+                                    <option value="25"> 25年 (300期)</option>
+                                    <option value="26"> 26年 (312期)</option>
+                                    <option value="27"> 27年 (324期)</option>
+                                    <option value="28"> 28年 (336期)</option>
+                                    <option value="29"> 29年 (348期)</option>
+                                    <option value="30"> 30年 (360期)</option>
+                                </select>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                    </div>
+
+                    <div id="houseZHCalInput" class="hide">
+                        <div class="item-mod">
+                            <label class="item-label"><span>商业贷款总</span></label>
+                            <div class="textbox">
+                                <input type="text" id="dkMoney" value="80" maxlength="9"><em>万元</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>商业利率</span></label>
+                            <div class="textbox">
+                                <input type="text" value="4.9" maxlength="9" id="initrate1"><em>%</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>公积金贷款</span></label>
+                            <div class="textbox">
+                                <input type="text" id="gjjMoney" value="40" maxlength="9"><em>万元</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>公积金利率</span></label>
+                            <div class="textbox">
+                                <input type="text" value="3.2" maxlength="9" id="initrate2"><em>%</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>按揭年数</span></label>
+                            <div class="textbox">
+                                <select name="jQuery2" class="beautify_input" id="ajyeardk" style="display: none;">
+                                    <option value="1"> 1年 (12期)</option>
+                                    <option value="2"> 2年 (24期)</option>
+                                    <option value="3"> 3年 (36期)</option>
+                                    <option value="4"> 4年 (48期)</option>
+                                    <option value="5"> 5年 (60期)</option>
+                                    <option value="6"> 6年 (72期)</option>
+                                    <option value="7"> 7年 (84期)</option>
+                                    <option value="8"> 8年 (96期)</option>
+                                    <option value="9"> 9年 (108期)</option>
+                                    <option value="10"> 10年 (120期)</option>
+                                    <option value="11"> 11年 (132期)</option>
+                                    <option value="12"> 12年 (144期)</option>
+                                    <option value="13"> 13年 (156期)</option>
+                                    <option value="14"> 14年 (168期)</option>
+                                    <option value="15"> 15年 (180期)</option>
+                                    <option value="16"> 16年 (192期)</option>
+                                    <option value="17"> 17年 (204期)</option>
+                                    <option value="18"> 18年 (216期)</option>
+                                    <option value="19"> 19年 (228期)</option>
+                                    <option value="20" selected=""> 20年 (240期)</option>
+                                    <option value="21"> 21年 (252期)</option>
+                                    <option value="22"> 22年 (264期)</option>
+                                    <option value="23"> 23年 (276期)</option>
+                                    <option value="24"> 24年 (288期)</option>
+                                    <option value="25"> 25年 (300期)</option>
+                                    <option value="26"> 26年 (312期)</option>
+                                    <option value="27"> 27年 (324期)</option>
+                                    <option value="28"> 28年 (336期)</option>
+                                    <option value="29"> 29年 (348期)</option>
+                                    <option value="30"> 30年 (360期)</option>
+                                </select>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+                    </div>
+
+                    <div class="item-bot">
+                        <a class="cal-button" href="javascript:" id="startCal">开始计算</a>
+                        <a class="cal-reset" href="javascript:" id="resetCal">清空重填</a>
+                    </div>
+                </div>
+
+                <div class="calright">
+                    <div id="caldefault1" class="default">
+                        <i></i>
+                        <p>要贷款买房？赶紧算算吧！</p>
+                    </div>
+
+                    <!--图形-->
+                    <div class="news_items_module hide houseCal" id="houseCal">
+
+                        <section class="jsresults" style="display: block;">
+                            <div style="display: block;">
+                                <section>
+                                    <div class="methodboxa">
+                                        <div class="mTab">
+                                            <div class="flexbox" id="payMethod">
+                                                <a href="javascript:;" class="active">等额本息
+                                                </a>
+                                                <a href="javascript:;" class="">等额本金
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <p class="f14" style="display: block;">每月还款额固定，所还总利息较多，适合收入稳定者。
+                                        </p>
+
+                                        <p class="f14" style="display: none;">每月还款额递减，所还总利息较低，前期还款额较大。
+                                        </p>
+                                    </div>
+                                </section>
+                                <div class="jsresults01 mt20">
+                                    <a href="javascript:;" id="detailLink">
+                                        <div class="quan">
+                                            <div class="info">月供
+                                                <em id="monthPay">
+                                                </em>
+                                            </div>
+                                            <div style="overflow: visible; transform: translateZ(0px);">
+                                                <canvas id="pieConChar" width="100%" height="100%">
+                                                </canvas>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="jsresults02" id="danduCal">
+                                    <dl>
+                                        <dt>房款总价：</dt>
+                                        <dd id="ddZj"></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt class="bj01">首付金额：</dt>
+                                        <dd id="ddSf"></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt class="bj02">贷款总额：</dt>
+                                        <dd id="ddDk"></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt class="bj03">支付利息：</dt>
+                                        <dd id="ddLx"></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>利<span style="margin:0 1em;"></span>率：</dt>
+                                        <dd id="ddLr"></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>首月月供：</dt>
+                                        <dd id="ddYg"></dd>
+                                    </dl>
+                                </div>
+
+                                <div class="jsresults02 hide" id="zhuheCal">
+                                    <dl>
+                                        <dt>还款总价：</dt>
+                                        <dd id="HkZj"></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt class="bj01">贷款总价：</dt>
+                                        <dd id="DkZj"></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt class="bj02">支付利息：</dt>
+                                        <dd id="LxZj"></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>首月月供：</dt>
+                                        <dd id="ddYg2"></dd>
+                                    </dl>
+                                </div>
+                                <p class="f14 f999 center mt10" id="cankao" style="display: block;">以上结果仅供参考</p>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!--月供表-->
+                    <div id="detailPage" class="hide detailPage">
+                        <div class="mlist" id="listInfo">
+                            <dl style="display: table;">
+                                <dt>还款总额</dt><dd id="lIAllMoney">
+                                </dd>
+                            </dl>
+                            <dl style="display: table;">
+                                <dt>贷款总额
+                                </dt>
+                                <dd id="lIDkMoney">
+                                </dd>
+                            </dl>
+                            <dl style="display: table;">
+                                <dt>支付利息
+                                </dt>
+                                <dd id="lILxMoney">
+                                </dd>
+                            </dl>
+                            <dl style="display: table;">
+                                <dt>贷款月数
+                                </dt>
+                                <dd id="lIDkYear">
+                                </dd>
+                            </dl>
+                            <dl style="display: none;">
+                                <dt>商业贷款月数
+                                </dt>
+                                <dd id="lISyDkYear">
+                                </dd>
+                            </dl>
+                            <dl style="display: none;">
+                                <dt>公积金贷款月数
+                                </dt>
+                                <dd id="lIGjjDkYear">
+                                </dd>
+                            </dl>
+                            <dl style="display: table;">
+                                <dt>月均还款
+                                </dt>
+                                <dd id="lIHkMoney">
+                                </dd>
+                            </dl>
+                            <dl style="display: none;">
+                                <dt>月均利息
+                                </dt>
+                                <dd id="lIYjMoney">
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="mlisttab" id="listHtml">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="calcontent" style="height: 650px; display: none;">
+                <div class="calleft" id="calleft2">
+                    <i class="icon-arrow"><span></span></i>
+                    <form action="http://house.sxol.com/house/houseCal/0" class="leftForm" name="prepayForm">
+                        <div class="item-mod">
+                            <label class="item-label"><span>还款类型</span></label>
+                            <div class="textbox">
+                                <div class="cssSelect" id="select_ui_id_tqhklx">
+                                    <div class="selectBox sNormal" style="">
+                                        <div class="selectLt">商业贷款</div>
+                                        <div class="selectRt"></div>
+                                    </div>
+                                    <div class="optionsBox"
+                                         style="top: 3px; left: 0px; overflow: hidden auto; display: none;">
+                                        <div class="optionsInnerBox" style="">
+                                            <div class="optionBox oNormal selected" style="float: none;">
+                                                <span>商业贷款</span></div>
+                                            <div class="optionBox oNormal" style="float: none;"><span>公积金贷款</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <select class="beautify_input" id="tqhklx" name="tqhklx" style="display: none;">
+                                    <option value="0">商业贷款</option>
+                                    <option value="1">公积金贷款</option>
+                                </select>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+                        <div class="item-mod">
+                            <label class="item-label"><span>原房贷金额</span></label>
+                            <div class="textbox">
+                                <input type="text" id="dkzws" name="dkzws" placeholder="请输入原房贷金额"
+                                       maxlength="9"><em>万元</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>贷款年限</span></label>
+                            <div class="textbox">
+                                <select class="beautify_input" id="yhkqs" name="yhkqs" style="display: none;">
+                                    <option value="12"> 1年 (12期)</option>
+                                    <option value="24"> 2年 (24期)</option>
+                                    <option value="36"> 3年 (36期)</option>
+                                    <option value="48"> 4年 (48期)</option>
+                                    <option value="60"> 5年 (60期)</option>
+                                    <option value="72"> 6年 (72期)</option>
+                                    <option value="84"> 7年 (84期)</option>
+                                    <option value="96"> 8年 (96期)</option>
+                                    <option value="108"> 9年 (108期)</option>
+                                    <option value="120"> 10年 (120期)</option>
+                                    <option value="132"> 11年 (132期)</option>
+                                    <option value="144"> 12年 (144期)</option>
+                                    <option value="156"> 13年 (156期)</option>
+                                    <option value="168"> 14年 (168期)</option>
+                                    <option value="180"> 15年 (180期)</option>
+                                    <option value="192"> 16年 (192期)</option>
+                                    <option value="204"> 17年 (204期)</option>
+                                    <option value="216"> 18年 (216期)</option>
+                                    <option value="228"> 19年 (228期)</option>
+                                    <option value="240" selected=""> 20年 (240期)</option>
+                                    <option value="252"> 21年 (252期)</option>
+                                    <option value="264"> 22年 (264期)</option>
+                                    <option value="276"> 23年 (276期)</option>
+                                    <option value="288"> 24年 (288期)</option>
+                                    <option value="300"> 25年 (300期)</option>
+                                    <option value="312"> 26年 (312期)</option>
+                                    <option value="324"> 27年 (324期)</option>
+                                    <option value="336"> 28年 (336期)</option>
+                                    <option value="348"> 29年 (348期)</option>
+                                    <option value="360"> 30年 (360期)</option>
+                                </select>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>利       率</span></label>
+                            <div class="textbox">
+                                <input type="text" value="4.9" maxlength="9" id="lilv" name="dklv_class"><em>%</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>第一次还款时间</span></label>
+                            <div class="textbox">
+
+                                <select class="beautify_input" id="yhksjn" name="yhksjn" style="display: none;">
+                                    <option value="2020" selected=""> 2020年</option>
+                                    <option value="2019"> 2019年</option>
+                                    <option value="2018"> 2018年</option>
+                                    <option value="2017"> 2017年</option>
+                                    <option value="2016"> 2016年</option>
+                                    <option value="2015"> 2015年</option>
+                                    <option value="2014"> 2014年</option>
+                                    <option value="2013"> 2013年</option>
+                                    <option value="2012"> 2012年</option>
+                                    <option value="2011"> 2011年</option>
+                                    <option value="2010"> 2010年</option>
+                                    <option value="2009"> 2009年</option>
+                                    <option value="2008"> 2008年</option>
+                                    <option value="2007"> 2007年</option>
+                                    <option value="2006"> 2006年</option>
+                                    <option value="2005"> 2005年</option>
+                                    <option value="2004"> 2004年</option>
+                                    <option value="2003"> 2003年</option>
+                                    <option value="2002"> 2002年</option>
+                                    <option value="2001"> 2001年</option>
+                                    <option value="2000"> 2000年</option>
+                                    <option value="1999"> 1999年</option>
+                                    <option value="1998"> 1998年</option>
+                                    <option value="1997"> 1997年</option>
+                                    <option value="1996"> 1996年</option>
+                                    <option value="1995"> 1995年</option>
+                                    <option value="1994"> 1994年</option>
+                                    <option value="1993"> 1993年</option>
+                                    <option value="1992"> 1992年</option>
+                                    <option value="1991"> 1991年</option>
+                                </select>
+
+                                <select class="beautify_input" id="yhksjy" name="yhksjy" style="display: none;">
+                                    <option value="1"> 1月</option>
+                                    <option value="2"> 2月</option>
+                                    <option value="3"> 3月</option>
+                                    <option value="4"> 4月</option>
+                                    <option value="5" selected=""> 5月</option>
+                                    <option value="6"> 6月</option>
+                                    <option value="7"> 7月</option>
+                                    <option value="8"> 8月</option>
+                                    <option value="9"> 9月</option>
+                                    <option value="10"> 10月</option>
+                                    <option value="11"> 11月</option>
+                                    <option value="12"> 12月</option>
+                                </select>
+
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>预计提前还款时间</span></label>
+                            <div class="textbox">
+                                <select class="beautify_input" id="tqhksjn" name="tqhksjn" style="display: none;">
+                                    <option value="2020" selected=""> 2020年</option>
+                                    <option value="2021"> 2021年</option>
+                                    <option value="2022"> 2022年</option>
+                                    <option value="2023"> 2023年</option>
+                                    <option value="2024"> 2024年</option>
+                                    <option value="2025"> 2025年</option>
+                                    <option value="2026"> 2026年</option>
+                                    <option value="2027"> 2027年</option>
+                                    <option value="2028"> 2028年</option>
+                                    <option value="2029"> 2029年</option>
+                                    <option value="2030"> 2030年</option>
+                                    <option value="2031"> 2031年</option>
+                                    <option value="2032"> 2032年</option>
+                                    <option value="2033"> 2033年</option>
+                                    <option value="2034"> 2034年</option>
+                                    <option value="2035"> 2035年</option>
+                                    <option value="2036"> 2036年</option>
+                                    <option value="2037"> 2037年</option>
+                                    <option value="2038"> 2038年</option>
+                                    <option value="2039"> 2039年</option>
+                                    <option value="2040"> 2040年</option>
+                                    <option value="2041"> 2041年</option>
+                                    <option value="2042"> 2042年</option>
+                                    <option value="2043"> 2043年</option>
+                                    <option value="2044"> 2044年</option>
+                                    <option value="2045"> 2045年</option>
+                                    <option value="2046"> 2046年</option>
+                                    <option value="2047"> 2047年</option>
+                                    <option value="2048"> 2048年</option>
+                                    <option value="2049"> 2049年</option>
+                                </select>
+
+                                <select class="beautify_input" id="tqhksjy" name="tqhksjy" style="display: none;">
+                                    <option value="1"> 1月</option>
+                                    <option value="2"> 2月</option>
+                                    <option value="3"> 3月</option>
+                                    <option value="4"> 4月</option>
+                                    <option value="5" selected=""> 5月</option>
+                                    <option value="6"> 6月</option>
+                                    <option value="7"> 7月</option>
+                                    <option value="8"> 8月</option>
+                                    <option value="9"> 9月</option>
+                                    <option value="10"> 10月</option>
+                                    <option value="11"> 11月</option>
+                                    <option value="12"> 12月</option>
+                                </select>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>提前还款方式</span></label>
+                            <span><input type="radio" checked="" name="tqhkfs" class="int-radio" value="0">一次提前还清</span>
+                            <span><input type="radio" name="tqhkfs" class="int-radio" value="1">部分提前还款</span>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div id="tqhkwsdiv" class="hide">
+
+                            <div class="item-mod">
+                                <label class="item-label"><span>提前还款</span></label>
+                                <div class="textbox">
+                                    <input type="text" id="tqhkws" name="tqhkws" placeholder="请输入提前还款金额"
+                                           maxlength="9"><em>万元</em>
+                                </div>
+                                <span class="warn" style="display: none;"></span>
+                            </div>
+
+                            <div class="item-mod">
+                                <label class="item-label"><span>处理方式</span></label>
+                                <span><input type="radio" checked="" name="clfs" class="int-radio" value="0">缩短还款期限,月还款额基本不变</span>
+                                <br>
+                                <span><input type="radio" name="clfs" class="int-radio" value="1">减少月还款额,还款期限不变</span>
+                                <span class="warn" style="display: none;"></span>
+                            </div>
+
+                        </div>
+                    </form>
+
+                    <div class="item-bot">
+                        <a class="cal-button" href="javascript:" id="startCal2">开始计算</a>
+                        <a class="cal-reset" href="javascript:" id="resetCal2">清空重填</a>
+                    </div>
+
+                </div>
+                <div class="calright">
+                    <div id="caldefault2" class="default">
+                        <i></i>
+                        <p>提前还款？赶紧算算吧！</p>
+                    </div>
+
+                    <div id="caldiv2" class="hide">
+
+                        <ul>
+                            <li class="title"><h2>计算结果</h2></li>
+                            <li class="clearfix">
+                                <h3>原月还款额：</h3> <span id="ykhke" class="on"></span> <i>元</i>
+                            </li>
+                            <li class="clearfix">
+                                <h3>原最后还款期：</h3> <span id="yzhhkq" class="on"></span> <i></i>
+                            </li>
+                            <li class="clearfix">
+                                <h3>已还款总额：</h3> <span id="yhkze"></span> <i>元</i>
+                            </li>
+                            <li class="clearfix">
+                                <h3>已还利息额：</h3> <span id="yhlxe"></span> <i>元</i>
+                            </li>
+                            <li class="clearfix">
+                                <h3>该月一次还款额：</h3> <span id="gyyihke"></span> <i>元</i>
+                            </li>
+                            <li class="clearfix">
+                                <h3>下月起月还款额：</h3> <span id="xyqyhke"></span> <i>元</i>
+                            </li>
+                            <li class="clearfix">
+                                <h3>节省利息支出：</h3> <span id="jslxzc"></span> <i>元</i>
+                            </li>
+                            <li class="clearfix">
+                                <h3>新的最后还款期：</h3> <span id="xdzhhkq"></span> <i></i>
+                            </li>
+                            <li class="clearfix hide">
+                                <h3>计算结果提示：</h3> <span id="jsjgts"></span> <i></i>
+                            </li>
+                        </ul>
+
+                        <p class="note">*以上结果仅供参考</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="calcontent" style="height: 540px; display: none;">
+                <div class="calleft" id="calleft3">
+                    <i class="icon-arrow"><span></span></i>
+                    <form action="http://house.sxol.com/house/houseCal/0" class="leftForm" name="myform" _lpchecked="1">
+                        <div class="item-mod">
+                            <label class="item-label"><span>现有资金</span></label>
+                            <div class="textbox">
+                                <input type="text" id="rg01" name="rg01" placeholder="请输入现在持有资金"
+                                       maxlength="9"><em>万元</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>每月收入</span></label>
+                            <div class="textbox">
+                                <input type="text" id="rg02" name="rg02" placeholder="请输入您家庭每月收入"
+                                       maxlength="9"><em>元</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>每月支出</span></label>
+                            <div class="textbox">
+                                <input type="text" id="rg03" name="rg03" placeholder="请输入您家庭每月固定支出"
+                                       maxlength="9"><em>元</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>购房面积</span></label>
+                            <div class="textbox">
+                                <input type="text" id="rg06" name="rg06" placeholder="请输入您计划购买的房屋面积" maxlength="9"><em>平方米</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>贷款年限</span></label>
+                            <div class="textbox">
+                                <select class="beautify_input" id="rg04" name="rg04" style="display: none;">
+                                    <option value="12"> 1年 (12期)</option>
+                                    <option value="24"> 2年 (24期)</option>
+                                    <option value="36"> 3年 (36期)</option>
+                                    <option value="48"> 4年 (48期)</option>
+                                    <option value="60"> 5年 (60期)</option>
+                                    <option value="72"> 6年 (72期)</option>
+                                    <option value="84"> 7年 (84期)</option>
+                                    <option value="96"> 8年 (96期)</option>
+                                    <option value="108"> 9年 (108期)</option>
+                                    <option value="120"> 10年 (120期)</option>
+                                    <option value="132"> 11年 (132期)</option>
+                                    <option value="144"> 12年 (144期)</option>
+                                    <option value="156"> 13年 (156期)</option>
+                                    <option value="168"> 14年 (168期)</option>
+                                    <option value="180"> 15年 (180期)</option>
+                                    <option value="192"> 16年 (192期)</option>
+                                    <option value="204"> 17年 (204期)</option>
+                                    <option value="216"> 18年 (216期)</option>
+                                    <option value="228"> 19年 (228期)</option>
+                                    <option value="240" selected=""> 20年 (240期)</option>
+                                    <option value="252"> 21年 (252期)</option>
+                                    <option value="264"> 22年 (264期)</option>
+                                    <option value="276"> 23年 (276期)</option>
+                                    <option value="288"> 24年 (288期)</option>
+                                    <option value="300"> 25年 (300期)</option>
+                                    <option value="312"> 26年 (312期)</option>
+                                    <option value="324"> 27年 (324期)</option>
+                                    <option value="336"> 28年 (336期)</option>
+                                    <option value="348"> 29年 (348期)</option>
+                                    <option value="360"> 30年 (360期)</option>
+                                </select>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+                    </form>
+
+                    <div class="item-bot">
+                        <a class="cal-button" href="javascript:" id="startCal3">开始计算</a>
+                        <a class="cal-reset" href="javascript:" id="resetCal3">清空重填</a>
+                    </div>
+
+                </div>
+                <div class="calright">
+                    <div id="caldefault3" class="default">
+                        <i></i>
+                        <p>要贷款买房？赶紧算算吧！</p>
+                    </div>
+
+                    <div id="caldiv3" class="hide">
+                        <ul>
+                            <li class="title">
+                                <h2>计算结果</h2>
+                            </li>
+                            <li class="clearfix">
+                                <h3>您可以购买的房屋总价为 </h3>
+                                <span class="on" id="rg07"></span>
+                                <i>万元</i>
+                            </li>
+                            <li class="clearfix">
+                                <h3>您可以购买的房屋单价为 </h3>
+                                <span class="on" id="rg08"></span>
+                                <i>元/平米</i></li>
+                        </ul>
+                        <p class="note">*以上结果仅供参考</p>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="calcontent" style="height: 540px; display: none;">
+                <div class="calleft" id="calleft4">
+                    <i class="icon-arrow"><span></span></i>
+                    <form action="http://house.sxol.com/house/houseCal/0" class="leftForm" name="taxForm">
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>单       价</span></label>
+                            <div class="textbox">
+                                <input type="text" placeholder="输入您购买时的单价" maxlength="9" id="dj3"
+                                       name="dj3"><em>元/平米</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+
+                        <div class="item-mod">
+                            <label class="item-label"><span>面       积</span></label>
+                            <div class="textbox">
+                                <input type="text" placeholder="输入您购买的面积" maxlength="9" id="mj3" name="mj3"><em>平方米</em>
+                            </div>
+                            <span class="warn" style="display: none;"></span>
+                        </div>
+
+
+                    </form>
+
+                    <div class="item-bot">
+                        <a class="cal-button" href="javascript:" id="startCal4">开始计算</a>
+                        <a class="cal-reset" href="javascript:" id="resetCal4">清空重填</a>
+                    </div>
+
+                    <div class="item-bot" style="margin-top: 180px;padding-left: 40px; font-size: 12px">
+                        税费：<br>
+                        1. 购房需交纳的第一组税费是契税、印花税、交易手续费、权属登记费。<br>
+                        2. 契税金额是房价的1.5%，一般情况下是在交易签证时交50%，入住后拿房产证时交50%。<br>
+                        3. 印花税金额为房价的0.05%，在交易签证时交纳。<br>
+                        4. 交易手续费一般是每平方米2.5元，也在交易签证时交纳。<br>
+                        5. 权属登记费100元到200元之间。
+                    </div>
+
+                </div>
+                <div class="calright">
+                    <div id="caldefault4" class="default">
+                        <i></i>
+                        <p>不知道税费？赶紧算算吧！</p>
+                    </div>
+
+                    <div id="caldiv4" class="hide">
+
+                        <ul>
+                            <li class="title"><h2>计算结果</h2></li>
+                            <li class="clearfix">
+                                <h3>房款总价：</h3> <span id="fkz3" class="on"></span> <i>元</i>
+                            </li>
+                            <li class="clearfix">
+                                <h3>契　　税：</h3> <span id="q" class="on"></span> <i>元</i>
+                            </li>
+                            <li class="clearfix">
+                                <h3>印 花 税：</h3> <span id="yh"></span> <i>元</i>
+                            </li>
+                            <li class="clearfix">
+                                <h3>公 证 费：</h3> <span id="gzh"></span> <i>元</i>
+                            </li>
+                            <li class="clearfix">
+                                <h3>委托办理产权手续费：</h3> <span id="wt"></span> <i>元</i>
+                            </li>
+                            <li class="clearfix">
+                                <h3>房屋买卖手续费：</h3> <span id="fw"></span> <i>元</i>
+                            </li>
+                        </ul>
+
+                        <p class="note">*以上结果仅供参考</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./dist/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script language="javascript">
+
+        $(function () {
+            jQuery("#housediv").slide({
+                titCell: ".calculatorhead div",
+                mainCell: "#housecaldiv",
+                trigger: "click",
+                delayTime: 1000
+            });
+
+            $(function () {
+                $('.beautify_input').cssSelect();
+            });
+
+
+            /*综合计算*/
+
+            /*
+             yearPeriad:总期数(月)[商业贷款]
+             money:本金[商业贷款 单位元]
+             monthInterest:月利息[商业贷款 格式:x.xxxxxx 小数点后六位]
+             money1:本金[公积金 单位元]
+             monthInterest1:月利息[公积金 格式x.xxxxxx 小数点后六位]
+             typeInterest:还息类型[1等额本金/0等额本息]
+             typeCal:计算类型[0商业贷款/1公积金贷款/2组合贷款]
+             */
+            function CalLoan(yearPeriad, money, monthInterest, money1, monthInterest1, typeInterest, typeCal) {
+
+                var HouseLoanObject = {};
+                if (typeInterest == 1) {
+                    switch (typeCal) {
+                        case 0:
+                            HouseLoanObject = CalAverageCapitalComm(yearPeriad, money, monthInterest);
+                            break;
+                        case 1:
+                            HouseLoanObject = CalAverageCapitalComm(yearPeriad, money1, monthInterest1);
+                            break;
+                        case 2:
+                            var HouseLoanObject1 = CalAverageCapitalComm(yearPeriad, money, monthInterest);
+                            var HouseLoanObject2 = CalAverageCapitalComm(yearPeriad, money1, monthInterest1);
+                            HouseLoanObject.BusInterest = HouseLoanObject1.Result;
+                            HouseLoanObject.AccuInterest = HouseLoanObject2.Result;
+                            HouseLoanObject.Result = HouseLoanObject1.Result + HouseLoanObject2.Result;
+                            HouseLoanObject.ResultCount = HouseLoanObject1.ResultCount + HouseLoanObject2.ResultCount;
+                            HouseLoanObject.MaxPayment = HouseLoanObject1.MaxPayment + HouseLoanObject2.MaxPayment;
+                            HouseLoanObject.MaxInterest = HouseLoanObject1.MaxInterest + HouseLoanObject2.MaxInterest;
+
+                            var houseLoan = {};
+                            var houseLoanArray = new Array();
+
+                            for (var i = 1; i <= yearPeriad; i++) {
+                                houseLoan =
+                                    {
+                                        ReplyPrincipalIntreest: (HouseLoanObject1.HouseLoan[i - 1].ReplyPrincipalIntreest + HouseLoanObject2.HouseLoan[i - 1].ReplyPrincipalIntreest),
+                                        ReplyInterest: (HouseLoanObject1.HouseLoan[i - 1].ReplyInterest + HouseLoanObject2.HouseLoan[i - 1].ReplyInterest),
+                                        ReplyPrincipal: (HouseLoanObject1.HouseLoan[i - 1].ReplyPrincipal + HouseLoanObject2.HouseLoan[i - 1].ReplyPrincipal),
+                                        SurplusPrincipal: (HouseLoanObject1.HouseLoan[i - 1].SurplusPrincipal + HouseLoanObject2.HouseLoan[i - 1].SurplusPrincipal)
+                                    };
+                                houseLoanArray.push(houseLoan);
+                            }
+                            HouseLoanObject.HouseLoan = houseLoanArray;
+                            break;
+                    }
+                } else {
+                    switch (typeCal) {
+                        case 0:
+                            HouseLoanObject = CalAverageCapitalPlusInterestComm(yearPeriad, money, monthInterest);
+                            break;
+                        case 1:
+                            HouseLoanObject = CalAverageCapitalPlusInterestComm(yearPeriad, money1, monthInterest1);
+                            break;
+                        case 2:
+                            var HouseLoanObject1 = CalAverageCapitalPlusInterestComm(yearPeriad, money, monthInterest);
+                            var HouseLoanObject2 = CalAverageCapitalPlusInterestComm(yearPeriad, money1, monthInterest1);
+                            HouseLoanObject.BusInterest = HouseLoanObject1.Result;
+                            HouseLoanObject.AccuInterest = HouseLoanObject2.Result;
+                            HouseLoanObject.Result = HouseLoanObject1.Result + HouseLoanObject2.Result;
+                            HouseLoanObject.ResultCount = HouseLoanObject1.ResultCount + HouseLoanObject2.ResultCount;
+                            HouseLoanObject.MonthPayment = HouseLoanObject1.MonthPayment + HouseLoanObject2.MonthPayment;
+                            HouseLoanObject.MaxPayment = HouseLoanObject1.MaxPayment + HouseLoanObject2.MaxPayment;
+                            HouseLoanObject.MaxInterest = HouseLoanObject1.MaxInterest + HouseLoanObject2.MaxInterest;
+
+                            var houseLoan = {};
+                            var houseLoanArray = new Array();
+
+                            for (var i = 1; i <= yearPeriad; i++) {
+                                houseLoan =
+                                    {
+                                        ReplyPrincipalIntreest: (HouseLoanObject1.HouseLoan[i - 1].ReplyPrincipalIntreest + HouseLoanObject2.HouseLoan[i - 1].ReplyPrincipalIntreest),
+                                        ReplyInterest: (HouseLoanObject1.HouseLoan[i - 1].ReplyInterest + HouseLoanObject2.HouseLoan[i - 1].ReplyInterest),
+                                        ReplyPrincipal: (HouseLoanObject1.HouseLoan[i - 1].ReplyPrincipal + HouseLoanObject2.HouseLoan[i - 1].ReplyPrincipal),
+                                        SurplusPrincipal: (HouseLoanObject1.HouseLoan[i - 1].SurplusPrincipal + HouseLoanObject2.HouseLoan[i - 1].SurplusPrincipal)
+                                    };
+                                houseLoanArray.push(houseLoan);
+                            }
+
+                            HouseLoanObject.HouseLoan = houseLoanArray;
+                            break;
+                    }
+                }
+                /*
+                 BusInterest:组合计算商业贷款利息总额
+                 AccuInterest：组合计算公积金贷款利息总额
+                 Result:利息总额
+                 ResultCount:累计还款总额
+                 MonthPayment:每月月供
+                 MaxPayment:最高月供
+                 MaxInterest:最高利息
+                 HouseLoan:累计偿还利息集合
+                 */
+                return HouseLoanObject;
+            }
+
+            /*计算公式=（总期数(月)+1）* 本金 *(月利率)/2
+             月利率=年利率/12
+             */
+            /*
+             通用等额本金计算规则
+             利息总额=(总期数+1)*本金*月利率/2
+             累计还款总额=本金+利息总额
+             最高月供=（本金/总期数）+（本金-0）*月利息
+             最高月付利息=本金*月利息^1
+             */
+
+            /*
+             yearPeriad:总期数(月)
+             money:本金[元]
+             monthInterest:月利率
+             */
+            function CalAverageCapitalComm(yearPeriad, money, monthInterest) {
+                /*商贷利息总额=（总期数(月)+1）* 本金 *(月利率)/2 */
+                var result = (yearPeriad + 1) * money * monthInterest / 2;
+                result = Math.abs(result.toFixed(2));
+
+                /*累计还款总额=利息+本金*/
+                var resultCount = parseFloat(result.toFixed(2)) + parseFloat(money);
+                resultCount = Math.abs(resultCount);
+
+                /*最高月供=(本金/总期数(月))+(本金-0)*月利息*/
+                var maxPayment = (money / yearPeriad) + (money - 0) * monthInterest;
+                maxPayment = Math.abs(maxPayment.toFixed(2));
+
+                /*最高利息=本金*(年利率/12)^1*/
+                var maxInterest = money * Math.pow(monthInterest, 1);
+                maxInterest = Math.abs(maxInterest.toFixed(2));
+
+                var houseLoan = {};
+                var houseLoanArray = new Array();
+                for (var i = 1; i <= yearPeriad; i++) {
+                    var replyPrincipalIntreest = (i != 1 ? ((money - (money / yearPeriad) * (i - 1)) * monthInterest) + (money / yearPeriad) : maxPayment); //偿还本息
+                    var replyInterest = (i != 1 ? ((money - (money / yearPeriad) * (i - 1)) * monthInterest) : maxInterest); //偿还利息
+                    var replyPrincipal = money / yearPeriad; //偿还本金
+                    var surplusPrincipal = money - (money / yearPeriad) * i; //剩余本金
+                    houseLoan = {
+                        ReplyPrincipalIntreest: replyPrincipalIntreest,
+                        ReplyInterest: replyInterest,
+                        ReplyPrincipal: replyPrincipal,
+                        SurplusPrincipal: surplusPrincipal
+                    };
+                    houseLoanArray.push(houseLoan);
+                }
+                var HouseLoanObject = {};
+                HouseLoanObject.Result = result;
+                HouseLoanObject.ResultCount = resultCount;
+                HouseLoanObject.MaxPayment = maxPayment;
+                HouseLoanObject.MaxInterest = maxInterest;
+                HouseLoanObject.HouseLoan = houseLoanArray;
+                return HouseLoanObject;
+            }
+
+            /*
+             商业贷款等额本息计算通用方法
+             偿还本息 = （本金*月利息）*(1+月利息)^贷款期限)/((1+月利息)^贷款期限-1）
+             利息总额 = 偿还本息*总期数-本金
+             累计还款总额 = 偿还本息 * 总期数
+             每月月供=偿还本息
+             最高月付利息=本金*月利息^1
+             */
+
+            /*
+             yearPeriad:总期数(月)
+             money:本金
+             monthInterest:月利率
+             */
+            function CalAverageCapitalPlusInterestComm(yearPeriad, money, monthInterest) {
+                /*偿还本息=(（本金*月利息）*(1+月利息)^贷款期限)/((1+月利息)^贷款期限-1）*/
+                var repleyInterest = (money * monthInterest * Math.pow(1 + monthInterest, yearPeriad)) / (Math.pow(1 + monthInterest, yearPeriad) - 1);
+
+                /*利息总额=偿还本息*总期数 - 本金*/
+                var result = repleyInterest * yearPeriad - money;
+                result = Math.abs(result.toFixed(2));
+
+                /*累计还款总额=偿还本息* 总期数*/
+                var resultCount = repleyInterest * yearPeriad;
+                resultCount = Math.abs(resultCount.toFixed(2));
+
+                /*每月月供=偿还本息*/
+                var monthPayment = Math.abs(repleyInterest.toFixed(2));
+
+
+                /*最高付款利息= 本金 * 月息^期次*/
+                var maxPayment = money * Math.pow(monthInterest, 1);
+                maxPayment = Math.abs(maxPayment.toFixed(2));
+                var houseLoan = {};
+                var houseLoanArray = new Array();
+                for (var i = 1; i <= yearPeriad; i++) {
+                    var surplusPrincipal1 = money * Math.pow(1 + monthInterest, i) - repleyInterest * (Math.pow(1 + monthInterest, i) - 1) / monthInterest; /*剩余本金*/
+                    var surplusPrincipal2 = money * Math.pow(1 + monthInterest, i - 1) - repleyInterest * (Math.pow(1 + monthInterest, i - 1) - 1) / monthInterest; /*取上一次的本金计算每月偿还利息*/
+                    var repeyInt = surplusPrincipal2 * monthInterest; /*每月偿还利息*/
+                    var repeyPrincipal1 = Math.abs((repleyInterest - repeyInt).toFixed(2)); /*每月偿还本金*/
+
+                    var replyPrincipalIntreest = monthPayment; //偿还本息
+                    var replyInterest = (i != 1 ? repeyInt : maxPayment); //偿还利息
+                    var replyPrincipal = (i != 1 ? repeyPrincipal1 : (repleyInterest - maxPayment)); //偿还本金
+                    var surplusPrincipal = (i != 1 ? surplusPrincipal1 : (money - repleyInterest + maxPayment)); //剩余本金
+                    houseLoan = {
+                        ReplyPrincipalIntreest: replyPrincipalIntreest,
+                        ReplyInterest: replyInterest,
+                        ReplyPrincipal: replyPrincipal,
+                        SurplusPrincipal: surplusPrincipal
+                    };
+                    houseLoanArray.push(houseLoan);
+                }
+                var HouseLoanObject = {};
+                HouseLoanObject.Result = result;
+                HouseLoanObject.ResultCount = resultCount;
+                HouseLoanObject.MonthPayment = monthPayment;
+                HouseLoanObject.MaxPayment = maxPayment;
+                HouseLoanObject.HouseLoan = houseLoanArray;
+                return HouseLoanObject;
+            }
+
+
+            var HouseLoanObject;
+
+            var txtTotalMoney = $('#totalMoney');
+            // var selSfRate     = $('#sfRate');
+
+            var txtdkTotalMoney = $('#dkTotalMoney');
+            var selajYear = $("#ajYear");
+            var txtinitrate = $("#initrate");
+
+
+            //组合贷款
+            var txtGjMoney = $('#gjjMoney');
+            var txtDkMoney = $('#dkMoney');
+            var selAjyeardk = $('#ajyeardk');
+            var txtInitrate1 = $('#initrate1');
+            var txtInitrate2 = $('#initrate2');
+
+
+            var m_sfMoney, m_dkMoney, m_typeCal = 0;
+
+            var selTypeCal = 0;
+
+            $('input[type=radio][name=typeCal]').change(function () {
+                if (this.value == 0) {
+                    $("#initrate").val(4.9);
+                    $("#houseCalInput").show();
+                    $("#houseZHCalInput").hide();
+                }
+                if (this.value == 1) {
+                    $("#initrate").val(3.2);
+                    $("#houseCalInput").show();
+                    $("#houseZHCalInput").hide();
+                }
+                if (this.value == 2) {
+                    $("#houseCalInput").hide();
+                    $("#houseZHCalInput").show();
+                }
+            });
+
+            $('#payMethod a').click(function () {
+                m_typeCal = $(this).index();
+                $('#payMethod a').removeClass('active');
+                $(this).addClass('active');
+                $("#detailPage").hide();
+                calFun();
+            });
+
+
+            $("#startCal").on("click", function () {
+                selTypeCal = Number($("input[name='typeCal']:checked").val());
+
+                m_typeCal = Number($("input[name='repaytype']:checked").val());
+
+                // m_dkMoney = txtdkTotalMoney.val();
+                // m_sfMoney = txtTotalMoney.val() - txtdkTotalMoney.val();
+
+                m_dkMoney = Math.round(txtdkTotalMoney.val());
+                m_sfMoney = Math.round(txtTotalMoney.val() - m_dkMoney);
+
+
+                $("#houseCal").show();
+                $("#danduCal").show();
+
+                $("#caldefault1").hide();
+                $("#detailPage").hide();
+
+                if (selTypeCal != 2) {
+                    $("#danduCal").show();
+                    $("#zhuheCal").hide();
+                } else {
+                    $("#danduCal").hide();
+                    $("#zhuheCal").show();
+                }
+                calFun();
+            });
+
+            //重填
+            $("#resetCal").on("click", function () {
+
+                $("#caldefault1").show();
+
+                $("#houseCal").hide();
+                $("#detailPage").hide();
+            });
+
+            $("#detailLink").on("click", function () {
+                $("#detailPage").show();
+                $("#houseCal").hide();
+                //if(selTypeCal!=2){
+                $("#lIAllMoney").html(Math.round(HouseLoanObject.ResultCount) + "元");
+                $("#lIDkMoney").html(Math.round(HouseLoanObject.ResultCount - HouseLoanObject.Result) + "元");
+                $("#lILxMoney").html(Math.round(HouseLoanObject.Result) + "元");
+                $("#lIDkYear").html("(" + Math.round(HouseLoanObject.HouseLoan.length) + "月)(" + Math.round(HouseLoanObject.HouseLoan.length) / 12 + "年)");
+                $("#lIHkMoney").html(Math.round(HouseLoanObject.ResultCount / HouseLoanObject.HouseLoan.length) + "元/月");
+
+                var htmlArr = [];
+                htmlArr.push('<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><th>月份</th><th>月供</th><th>月供本金</th><th>月供利息</th><th>剩余贷款</th></tr></tbody></table>');
+
+                for (var i = 0; i < HouseLoanObject.HouseLoan.length / 12; i++) {
+                    htmlArr.push('<table style="width:100% ;border:0 ;cellpadding:0;cellspacing:0"><tbody><tr><td colspan="5" class="lf4">第' + (i + 1) + '年</td></tr>');
+                    for (var j = 0; j < 12; j++) {
+                        htmlArr.push('<tr><td>' + (j + 1) + '月</td><td>￥' + Math.round(HouseLoanObject.HouseLoan[(i * 12 + j)].ReplyPrincipalIntreest) + '</td><td>￥' + Math.round(HouseLoanObject.HouseLoan[(i * 12 + j)].ReplyPrincipal) + '</td><td>￥' + Math.round(HouseLoanObject.HouseLoan[(i * 12 + j)].ReplyInterest) + '</td><td>￥' + Math.round(HouseLoanObject.HouseLoan[(i * 12 + j)].SurplusPrincipal) + '</td></tr>')
+                    }
+                    htmlArr.push('</tbody></table>');
+                }
+
+                $("#listHtml").html(htmlArr.join(""));
+
+            });
+
+
+            var calFun = function () {
+
+                if (selTypeCal != 2) {
+                    //贷款钱
+                    var dke = txtdkTotalMoney.val() * 10000;
+                    //年份
+                    var ns = selajYear.val();
+                    //利率
+                    var nll = txtinitrate.val();
+
+                    if (selTypeCal == 0) {
+                        HouseLoanObject = CalLoan(ns * 12, dke, nll / 12 / 100, 0, 0, m_typeCal, selTypeCal);
+                    } else if (selTypeCal == 1) {
+                        HouseLoanObject = CalLoan(ns * 12, 0, 0, dke, nll / 12 / 100, m_typeCal, selTypeCal);
+                    }
+
+                    var doughnutData = [
+                        {
+                            value: m_sfMoney.toFixed(1),
+                            color: "#6dbdff",
+                            highlight: "#3bbdff"
+                        },
+                        {
+                            value: Math.round(HouseLoanObject.Result / 10000),
+                            color: "#ff6ea0",
+                            highlight: "#ff3ca0"
+                        },
+                        {
+                            value: m_dkMoney.toFixed(1),
+                            color: "#ffd87b",
+                            highlight: "#ffd83f"
+                        }
+
+                    ];
+
+                    var ctx = document.getElementById("pieConChar").getContext("2d");
+                    window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
+                        responsive: true,
+                        scaleShowLabels: false
+                    });
+
+
+                    $("#monthPay").html("￥" + HouseLoanObject.HouseLoan[0].ReplyPrincipalIntreest.toFixed(1));
+                    $("#ddZj").html(Math.round(txtTotalMoney.val()) + "万元");
+                    $("#ddSf").html(Math.round(m_sfMoney) + "万元");
+                    $("#ddDk").html(Math.round(m_dkMoney) + "万元");
+                    $("#ddLx").html(Math.round(HouseLoanObject.Result) + "元");
+                    $("#ddLr").html(txtinitrate.val() + "%");
+                    $("#ddYg").html(Math.round(HouseLoanObject.HouseLoan[0].ReplyPrincipalIntreest) + "元/月");
+
+                } else {
+
+                    HouseLoanObject = CalLoan(selAjyeardk.val() * 12, txtDkMoney.val() * 10000, txtInitrate1.val() / 12 / 100, txtGjMoney.val() * 10000, txtInitrate2.val() / 12 / 100, m_typeCal, selTypeCal);
+
+                    var doughnutData = [
+                        {
+                            value: Math.round(HouseLoanObject.ResultCount - HouseLoanObject.Result),
+                            color: "#6dbdff",
+                            highlight: "#3bbdff"
+                        },
+                        {
+                            value: Math.round(HouseLoanObject.Result),
+                            color: "#ffd87b",
+                            highlight: "#ffd83f"
+                        }
+
+                    ];
+
+                    var ctx = document.getElementById("pieConChar").getContext("2d");
+                    window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
+                        responsive: true,
+                        scaleShowLabels: false
+                    });
+
+                    $("#monthPay").html("￥" + Math.round(HouseLoanObject.HouseLoan[0].ReplyPrincipalIntreest));
+
+                    $("#HkZj").html(Math.round(HouseLoanObject.ResultCount) + "元");
+                    $("#DkZj").html(Math.round(HouseLoanObject.ResultCount - HouseLoanObject.Result) + "元");
+                    $("#LxZj").html(Math.round(HouseLoanObject.Result) + "元");
+                    $("#ddYg2").html(Math.round(HouseLoanObject.HouseLoan[0].ReplyPrincipalIntreest) + "元/月");
+
+                }
+            }
+
+        });
+
+        $(function () {
+            $('input[type=radio][name=tqhkfs]').change(function () {
+                if (this.value == 0) {
+                    $("#tqhkwsdiv").hide();
+                }
+                if (this.value == 1) {
+                    $("#tqhkwsdiv").show();
+                }
+            });
+
+            $("#startCal2").on("click", function () {
+                play();
+                $('#caldefault2').hide()
+                $('#caldiv2').show()
+            });
+            $("#resetCal2").on("click", function () {
+
+            });
+
+
+            //提前还歀计算
+            function play() {
+                if (typeof _gaq === 'object')
+                    _gaq.push(['_trackEvent', 'GA_Calculator', 'Calculator', 'huandai']);
+                if (document.prepayForm.dkzws.value == '' || !isNumber(document.prepayForm.dkzws.value)) {
+                    alert('请输入贷款总额，必须是不小于0的数字');
+                    return;
+                } else {
+                    dkzys = parseFloat(document.prepayForm.dkzws.value) * 10000;
+                }
+
+                if (document.prepayForm.tqhkfs[1].checked) {
+                    if (document.prepayForm.tqhkws.value == '' || !isNumber(document.prepayForm.tqhkws.value)) {
+                        alert('请输入部分提前还款额度，必须是不小于0的数字');
+                        return;
+                    }
+                }
+                s_yhkqs = parseInt(document.prepayForm.yhkqs.value);
+
+                //月利率 1代表 公基金贷款
+                if (document.prepayForm.tqhklx.value == 1) {
+                    if (s_yhkqs > 60) {
+                        dklv = document.prepayForm.dklv_class.value / 12; //公积金贷款利率5年以上4.23%
+                    } else {
+                        dklv = document.prepayForm.dklv_class.value / 12; //公积金贷款利率5年(含)以下3.78%
+                    }
+                }
+
+                // 0 零代表商业贷款
+                if (document.prepayForm.tqhklx.value == 0) { //商业贷款调整为3期，1～3，3～5，6 by coldarmy
+                    if (s_yhkqs > 60) {
+                        dklv = document.prepayForm.dklv_class.value / 12; //商业性贷款利率5年以上5.31%
+                    } else if (s_yhkqs > 12) {
+                        dklv = document.prepayForm.dklv_class.value / 12; //商业性贷款利率3年以上5.31%
+                    } else {
+                        dklv = document.prepayForm.dklv_class.value / 12; //商业性贷款利率5年(含)以下4.95%
+                    }
+                }
+
+                //已还贷款期数
+                yhdkqs = (parseInt(document.prepayForm.tqhksjn.value) * 12 + parseInt(document.prepayForm.tqhksjy.value)) - (parseInt(document.prepayForm.yhksjn.value) * 12 + parseInt(document.prepayForm.yhksjy.value));
+
+                if (yhdkqs < 0 || yhdkqs >= s_yhkqs) {
+                    alert('预计提前还款时间与第一次还款时间有矛盾，请查实');
+                    return false;
+                }
+
+                yhk = dkzys * (dklv * Math.pow((1 + dklv), s_yhkqs)) / (Math.pow((1 + dklv), s_yhkqs) - 1);
+                yhkjssj = Math.floor((parseInt(document.prepayForm.yhksjn.value) * 12 + parseInt(document.prepayForm.yhksjy.value) + s_yhkqs - 2) / 12) + '年' + ((parseInt(document.prepayForm.yhksjn.value) * 12 + parseInt(document.prepayForm.yhksjy.value) + s_yhkqs - 2) % 12 + 1) + '月';
+                yhdkys = yhk * yhdkqs;
+
+                yhlxs = 0;
+                yhbjs = 0;
+                for (i = 1; i <= yhdkqs; i++) {
+                    yhlxs = yhlxs + (dkzys - yhbjs) * dklv;
+                    yhbjs = yhbjs + yhk - (dkzys - yhbjs) * dklv;
+                }
+
+                remark = '';
+                if (document.prepayForm.tqhkfs[1].checked) {
+                    tqhkys = isNumber(document.prepayForm.tqhkws.value) ? parseInt(document.prepayForm.tqhkws.value) * 10000 : 0;
+                    if (tqhkys + yhk >= (dkzys - yhbjs) * (1 + dklv)) {
+                        remark = '您的提前还款额已足够还清所欠贷款！';
+                    } else {
+                        yhbjs = yhbjs + yhk;
+                        byhk = yhk + tqhkys;
+                        if (document.prepayForm.clfs[0].checked) {
+                            yhbjs_temp = yhbjs + tqhkys;
+                            for (xdkqs = 0; yhbjs_temp <= dkzys; xdkqs++)
+                                yhbjs_temp = yhbjs_temp + yhk - (dkzys - yhbjs_temp) * dklv;
+                            xdkqs = xdkqs - 1;
+                            xyhk = (dkzys - yhbjs - tqhkys) * (dklv * Math.pow((1 + dklv), xdkqs)) / (Math.pow((1 + dklv), xdkqs) - 1);
+                            jslx = yhk * s_yhkqs - yhdkys - byhk - xyhk * xdkqs;
+                            xdkjssj = Math.floor((parseInt(document.prepayForm.tqhksjn.value) * 12 + parseInt(document.prepayForm.tqhksjy.value) + xdkqs - 2) / 12) + '年' + ((parseInt(document.prepayForm.tqhksjn.value) * 12 + parseInt(document.prepayForm.tqhksjy.value) + xdkqs - 2) % 12 + 1) + '月';
+                        } else {
+                            xyhk = (dkzys - yhbjs - tqhkys) * (dklv * Math.pow((1 + dklv), (s_yhkqs - yhdkqs))) / (Math.pow((1 + dklv), (s_yhkqs - yhdkqs)) - 1);
+                            jslx = yhk * s_yhkqs - yhdkys - byhk - xyhk * (s_yhkqs - yhdkqs);
+                            xdkjssj = yhkjssj;
+                        }
+                    }
+                }
+
+                if (document.prepayForm.tqhkfs[0].checked || remark != '') {
+                    byhk = (dkzys - yhbjs) * (1 + dklv);
+                    xyhk = 0;
+                    jslx = yhk * s_yhkqs - yhdkys - byhk;
+                    xdkjssj = document.prepayForm.tqhksjn.value + '年' + document.prepayForm.tqhksjy.value + '月';
+                }
+
+                $('#ykhke').html(Math.round(yhk * 100) / 100);
+                $('#yhkze').html(Math.round(yhdkys * 100) / 100);
+                $('#yhlxe').html(Math.round(yhlxs * 100) / 100);
+                $('#gyyihke').html(Math.round(byhk * 100) / 100);
+
+                $('#xyqyhke').html(Math.round(xyhk * 100) / 100);
+                $('#jslxzc').html(Math.round(jslx * 100) / 100);
+                $('#yzhhkq').html(yhkjssj);
+                $('#xdzhhkq').html(xdkjssj);
+                $('#jsjgts').html(remark);
+            }
+
+            function isNumber(s) {
+                var regu = /^(\d*\.)?\d+$/;
+                var re = new RegExp(regu);
+                return re.test(s);
+            }
+
+        });
+
+        $(function () {
+            $("#startCal3").on("click", function () {
+                chk03();
+
+            });
+            $("#resetCal3").on("click", function () {
+                document.myform.rg01.value = "";
+                document.myform.rg02.value = "";
+                document.myform.rg03.value = "";
+                document.myform.rg06.value = "";
+                $("#caldefault3").show();
+                $("#caldiv3").hide();
+            });
+
+            function chk01() {
+                if (parseFloat(document.myform.rg01.value) < 4.7)
+                    alert("--您确定是" + parseFloat(document.myform.rg01.value) + "万元?--" + "\n\n" + "那么您目前尚不具备购房能力，" + "\n\n" + "建议积攒积蓄或能筹集更多的资金。")
+                if (parseFloat(document.myform.rg01.value) > 10000)
+                    alert("您确定拥有超过一亿元的购房资金？");
+
+            }
+
+            function chk02() {
+                if (parseFloat(document.myform.rg03.value) > parseFloat(document.myform.rg02.value) * 0.7) {
+                    alert("您预计家庭每月可用于购房支出已超过家庭月收入的70%，" + "\n\n" + "是否确定不会影响您的正常生活消费？" + "\n\n" + "建议在40%（" + Math.round(parseFloat(document.myform.rg02.value) * 0.4) + "元）左右")
+                }
+            }
+
+            function chk03() {
+                if (typeof _gaq === 'object') _gaq.push(['_trackEvent', 'GA_Calculator', 'Calculator', 'goufang']);
+                //加入验证逻辑
+                if (document.myform.rg01.value == "" || !isNumber(document.myform.rg01.value)) {
+                    alert("请填写可用于购房的资金，必须是不于小0的数字");
+                    return;
+                }
+                if (document.myform.rg02.value == "" || !isNumber(document.myform.rg02.value)) {
+                    alert("请填写现家庭月收入，必须是不于小0的数字");
+                    return;
+                }
+                if (document.myform.rg03.value == "" || !isNumber(document.myform.rg03.value)) {
+                    alert("请填写每月可用于购房支出，必须是不于小0的数字");
+                    return;
+                }
+                if (document.myform.rg06.value == "" || !isNumber(document.myform.rg06.value) || document.myform.rg06.value <= 0) {
+                    alert("请填写您计划购买房屋的面积，必须是大于0的数字");
+                    return;
+                }
+
+                chk02()
+                calculator()
+            }
+
+            function calculator() {
+                var month = parseInt(document.myform.rg04.options[document.myform.rg04.selectedIndex].value);
+                var year = parseInt(month / 12);
+                var lilu = 0.0385; //0.0385; //2020年4月20日基准利率变更 0.0385;
+                if (year > 5)
+                    lilu = 0.0465; //0.0465;//2020年4月20日基准利率变更 0.0465;
+                lilu = parseFloat(lilu / 12);
+                js00 = parseFloat(document.myform.rg01.value) * 10000;//现持有
+                js01 = parseFloat(document.myform.rg02.value);//月收入
+                js02 = parseFloat(document.myform.rg03.value);//月支出
+                js03 = parseFloat(document.myform.rg06.value);//面积
+                //可购房总价 = 一次付款 + 贷款金额 = 一次付款 + 预计月还款 / (月利率 x (1 + 月利率)^月数 / ((月利率 + 1)^月数 - 1))
+                var total_value = js00 + js02 / (lilu * Math.pow(1 + lilu, month) / (Math.pow(1 + lilu, month) - 1));
+                total_value = Math.round(total_value);
+
+                $('#rg07').html(Math.round(total_value / 10000));
+                avg_value = Math.round(total_value / js03);
+                $('#rg08').html(avg_value);
+
+                $("#caldefault3").hide();
+                $("#caldiv3").show();
+
+            }
+
+            function isNumber(s) {
+                var regu = /^(\d*\.)?\d+$/;
+                var re = new RegExp(regu);
+                return re.test(s);
+            }
+        });
+
+        $(function () {
+            $("#startCal4").on("click", function () {
+                checkformt3();
+                $("#caldefault4").hide();
+                $("#caldiv4").show();
+            });
+            $("#resetCal4").on("click", function () {
+
+                $("#caldefault4").show();
+                $("#caldiv4").hide();
+            });
+
+            function checkformt3() {
+                if (typeof _gaq === 'object')
+                    _gaq.push(['_trackEvent', 'GA_Calculator', 'Calculator', 'tax']);
+                if (document.taxForm.dj3.value == "" || !isNumber(document.taxForm.dj3.value)) {
+                    alert("请填写单价，必须是不于小0的数字");
+                    return;
+                }
+                if (document.taxForm.mj3.value == "" || !isNumber(document.taxForm.mj3.value)) {
+                    alert("请填写面积，必须是不于小0的数字");
+                    return;
+                }
+                runjs3(document.taxForm);
+            }
+
+            function runjs3(obj) {
+                dj3 = isNumber(obj.dj3.value) ? parseFloat(obj.dj3.value) : 0;
+                mj3 = isNumber(obj.mj3.value) ? parseFloat(obj.mj3.value) : 0;
+                var fkz3 = dj3 * mj3, q = 0, gzh = 0, fw = 0;
+                var yh = fkz3 * 0.0005;
+                if (dj3 <= 9432) q = fkz3 * 0.015;
+                else if (dj3 > 9432) q = fkz3 * 0.03;
+                if (mj3 <= 120) fw = 500;
+                else if (120 < mj3 <= 5000) fw = 1500;
+                if (mj3 > 5000) fw = 5000;
+                gzh = fkz3 * 0.003;
+
+
+                $('#yh').html(Math.round(yh * 100, 5) / 100);
+                $('#fkz3').html(Math.round(fkz3 * 100, 5) / 100);
+                $('#q').html(Math.round(q * 100, 5) / 100);
+                $('#gzh').html(Math.round(gzh * 100, 5) / 100);
+                $('#wt').html(Math.round(gzh * 100, 5) / 100);
+                $('#fw').html(Math.round(fw * 100, 5) / 100);
+            }
+
+            function isNumber(s) {
+                var regu = /^(\d*\.)?\d+$/;
+                var re = new RegExp(regu);
+                return re.test(s);
+            }
+        });
+
+    </script>
+
+</div>
+
+
+</body>
+</html>

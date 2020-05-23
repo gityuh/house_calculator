@@ -1,0 +1,1062 @@
+@charset "utf-8";
+
+
+.center, .news_tab_nav {
+    text-align: center
+}
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+
+.btn-cal, .mTab {
+    max-width: 480px
+}
+
+
+.f12 {
+    font-size: 12px
+}
+
+.f14 {
+    font-size: 14px
+}
+
+.f16 {
+    font-size: 16px
+}
+
+.f18 {
+    font-size: 18px
+}
+
+.ti2 {
+    text-indent: 2em
+}
+
+.pd10 {
+    padding: 10px
+}
+
+.pdX10 {
+    padding: 0 10px
+}
+
+.pdY10 {
+    padding: 10px 0
+}
+
+.pdY5 {
+    padding: 5px 0
+}
+
+.mgX10 {
+    margin: 0 10px
+}
+
+.mgY10 {
+    margin: 10px 0
+}
+
+.mt10 {
+    margin-top: 10px !important
+}
+
+.mt15 {
+    margin-top: 15px !important
+}
+
+.mt20 {
+    margin-top: 20px !important
+}
+
+.lh20 {
+    line-height: 20px
+}
+
+.lh22 {
+    line-height: 22px
+}
+
+.fccc {
+    color: #ccc
+}
+
+.f999 {
+    color: #999
+}
+
+.fgray {
+    color: gray
+}
+
+.f039, .fblue {
+    color: #039
+}
+
+.fgrn {
+    color: #16ac0e
+}
+
+.ff60, .forge {
+    color: #f60
+}
+
+.ff90 {
+    color: #f90
+}
+
+.fc00 {
+    color: #c00
+}
+
+.f333 {
+    color: #333
+}
+
+.fdf3 {
+    color: #df3031
+}
+
+.f93 {
+    color: #f93
+}
+
+.f666 {
+    color: #f66
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    font-size: 0;
+    visibility: hidden;
+    line-height: 0
+}
+
+.clearfix:after {
+    clear: both;
+    content: "\200B";
+    display: block;
+    height: 0
+}
+
+.hide, .none {
+    display: none
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+.flol {
+    float: left
+}
+
+.flor {
+    float: right
+}
+
+.rbox4 {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px
+}
+
+.rbox6 {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px
+}
+
+#cankao {
+    margin-bottom: 10px
+}
+
+.news_tab {
+    clear: both;
+    border-bottom: 1px solid #dfdfdf;
+    color: #333;
+    padding: 0 12px;
+    font-size: 14px;
+    height: 41px;
+    line-height: 41px
+}
+
+.mt10e {
+    height: 10px;
+    font-size: 0;
+    background: #f4f4f4
+}
+
+.news_tab_nav {
+    float: left;
+    white-space: nowrap;
+    width: 33%;
+    padding: 0 9px;
+    min-width: 55px
+}
+
+.news_tab_nav.on {
+    color: red;
+    border-bottom: 2px solid red;
+    font-size: 16px;
+    line-height: 40px
+}
+
+.news_tab_nav strong {
+    font-weight: 400
+}
+
+.news_items_module_wrap {
+    min-height: 200px
+}
+
+.news_items_module {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto
+}
+
+.calculator dl {
+    padding: 6px 10px;
+    display: table;
+    width: 100%;
+    line-height: 32px;
+    border-top: 1px solid #f4f4f4
+}
+
+.calculator dd, .calculator dt {
+    display: table-cell;
+    vertical-align: top
+}
+
+.calculator dl.not {
+    border-top: 0
+}
+
+.calculator dt {
+    width: 6.5em
+}
+
+.calculator dd {
+    position: relative;
+    text-align: left;
+    color: #999;
+    font-size: 14px
+}
+
+.calculator .ipt-text, .calculator .ipt-texta {
+    font-size: 16px;
+    border: 0;
+    line-height: normal;
+    height: 32px
+}
+
+.calculator dd a {
+    color: #999
+}
+
+.calculator ul {
+    border-bottom: 1px solid #f4f4f4;
+    padding: 0 10px 10px
+}
+
+.calculator ul li {
+    line-height: 22px;
+    margin-top: 10px
+}
+
+.calculator ul li .ipt-cb {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: url(../../dist/img/icon-ipt.png) no-repeat;
+    background-size: 40px auto;
+    margin-right: 10px;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    outline: 0;
+    border: 0
+}
+
+.calculator ul li .ipt-cb:checked {
+    background-position: -20px 0
+}
+
+.calculator .ipt-text {
+    background-color: #fff;
+    color: #999;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+.calculator .ipt-text:focus {
+    color: #333;
+    background-color: #fff
+}
+
+.calculator .ipt-text:-webkit-input-placeholder {
+    color: #999
+}
+
+.calculator .ipt-texta {
+    background-color: #fff;
+    color: #999;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+.calculator .ipt-texta:focus {
+    color: #333;
+    background-color: #fff
+}
+
+.calculator .ipt-texta:-webkit-input-placeholder {
+    color: #999
+}
+
+.calculator .flexbox i {
+    margin: 0 5px;
+    -moz-box-flex: 0;
+    -webkit-box-flex: 0;
+    box-flex: 0;
+    line-height: 32px;
+    font-style: normal
+}
+
+.calculator .flexbox i:first-child {
+    margin-left: 0
+}
+
+.calculator .flexbox i:last-child {
+    margin-right: 0
+}
+
+.calculator dd select {
+    border: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 32px;
+    line-height: 32px;
+    font: inherit;
+    -webkit-appearance: none;
+    color: #999;
+    background-color: transparent
+}
+
+.hkmethods, .methodbox {
+    border-bottom: 1px solid #f4f4f4
+}
+
+.hkmethods, .hkmethodsa {
+    height: 32px;
+    line-height: 32px;
+    background: #fafafa;
+    font-size: 14px
+}
+
+.hkmethods {
+    color: #999;
+    border-top: 1px solid #f4f4f4
+}
+
+.hkmethodsa {
+    color: #999
+}
+
+.methodbox p, .methodboxa p {
+    line-height: 24px;
+    color: #999;
+    margin-top: 10px
+}
+
+.methodbox {
+    padding: 25px 40px 15px
+}
+
+.methodbox.nob, .methodboxa.nob {
+    border-bottom: 0
+}
+
+.methodboxa {
+    padding: 15px 40px 0
+}
+
+
+.flexbox {
+    display: box;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    -webkit-box-orient: horizontal;
+    box-orient: horizontal;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+.flexbox > * {
+    display: block;
+    box-flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+
+.mTab {
+    margin: 0 auto
+}
+
+.mTab .flexbox {
+    width: 100%;
+    padding: 1px;
+    border: 1px solid #f66;
+    border-radius: 2px
+}
+
+.mTab a {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    box-flex: 1;
+    text-align: center;
+    border-radius: 2px;
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    color: #f66
+}
+
+.mTab a.active {
+    background-color: #f66;
+    color: #fff
+}
+
+.jsresults {
+    padding: 0 10px;
+    border-top: 1px solid #f4f4f4
+}
+
+.jsresults h3 {
+    color: #999;
+    line-height: 32px
+}
+
+.jsresults01 {
+    height: 140px;
+    position: relative
+}
+
+.jsresults01:after {
+    position: absolute;
+    content: '';
+    right: -4px;
+    top: 50%;
+    margin-top: -7px;
+    width: 15px;
+    height: 15px;
+    background: url(../../dist/img/arrs01.png) no-repeat;
+    background-size: 15px auto
+}
+
+.jsresults10 .rquan {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+    background-size: 140px;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    box-flex: 1;
+    position: relative
+}
+
+.jsresults10 .rquan .info {
+    width: 70px;
+    height: 20px;
+    line-height: 20px;
+    color: #999;
+    position: absolute;
+    top: 60px;
+    left: 35px;
+    text-align: center;
+    font-size: 14px;
+    z-index: 1
+}
+
+.jsresults01 .quan .info, .jsresults10 .quan .info {
+    line-height: 24px;
+    top: 45px;
+    left: 32px;
+    text-align: center
+}
+
+.jsresults10 .quan {
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+    margin: 0 auto;
+    background: url(../../dist/img/quan.png) no-repeat;
+    background-size: 140px;
+    position: relative
+}
+
+.jsresults10 .quan .info {
+    width: 70px;
+    height: 50px;
+    color: #999;
+    position: absolute
+}
+
+.jsresults10 .quan .info em {
+    font-style: normal;
+    color: #f66;
+    display: block
+}
+
+.jsresults01 .quan {
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-size: 140px;
+    position: relative
+}
+
+.jsresults01 .quan .info {
+    width: 70px;
+    height: 50px;
+    color: #999;
+    position: absolute;
+    z-index: 1
+}
+
+.jsresults01 .quan .info em {
+    font-style: normal;
+    color: #f66;
+    display: block
+}
+
+.jsresults02 {
+    margin-top: 20px
+}
+
+.jsresults02 dl {
+    display: table;
+    width: 100%;
+    line-height: 30px
+}
+
+.jsresults02 dd, .jsresults02 dt {
+    display: table-cell;
+    vertical-align: top
+}
+
+.jsresults02 dt {
+    width: 7.5em;
+    padding-left: 25px
+}
+
+.jsresults02 dt.bj01, .jsresults02 dt.bj02, .jsresults02 dt.bj03 {
+    background: url(../../dist/img/quan_icon.png) 0 6px no-repeat;
+    background-size: 10px
+}
+
+.jsresults02 dt.bj02 {
+    background-position: 0 -17px
+}
+
+.jsresults02 dt.bj03 {
+    background-position: 0 -42px
+}
+
+.jsresults02 dd {
+    position: relative;
+    text-align: right;
+    color: #999;
+    font-size: 14px
+}
+
+.taxation01 {
+    padding: 25px 40px;
+    background: #fafafa
+}
+
+.jsresults03 {
+    margin-top: 10px
+}
+
+.jsresults01 .rquan {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    box-flex: 1;
+    position: relative
+}
+
+.jsresults01 .rquan .info {
+    width: 70px;
+    height: 20px;
+    line-height: 20px;
+    color: #999;
+    position: absolute;
+    top: 60px;
+    left: 35px;
+    text-align: center;
+    font-size: 14px;
+    z-index: 1
+}
+
+.jsresults03 dd, .mlist dd {
+    position: relative;
+    text-align: right;
+    color: #999;
+    font-size: 14px
+}
+
+.jsresults03 dl {
+    display: table;
+    line-height: 28px;
+    width: 100%
+}
+
+.jsresults03 dd, .jsresults03 dt {
+    display: table-cell;
+    vertical-align: top
+}
+
+.jsresults03 dt {
+    padding-left: 25px;
+    width: 11em
+}
+
+.jsresults03 dt.bj01, .jsresults03 dt.bj02, .jsresults03 dt.bj03, .jsresults03 dt.bj04, .jsresults03 dt.bj05, .jsresults03 dt.bj06, .jsresults03 dt.bj07 {
+    background: url(../../dist/img/quan_icon.png) 0 8px no-repeat;
+    background-size: 10px
+}
+
+.jsresults03 dt.bj02 {
+    background-position: 0 -20px
+}
+
+.jsresults03 dt.bj03 {
+    background-position: 0 -42px
+}
+
+.jsresults03 dt.bj04 {
+    background-position: 0 -68px
+}
+
+.jsresults03 dt.bj05 {
+    background-position: 0 -92px
+}
+
+.jsresults03 dt.bj06 {
+    background-position: 0 -142px
+}
+
+.jsresults03 dt.bj07 {
+    background-position: 0 -117px
+}
+
+.mlist {
+    padding: 10px
+}
+
+.mlist dl {
+    display: table;
+    width: 100%;
+    line-height: 32px
+}
+
+.mlist dd, .mlist dt {
+    display: table-cell;
+    vertical-align: top
+}
+
+.mlist dt {
+    width: 8em
+}
+
+.mlist dd a {
+    color: #999
+}
+
+.mlisttab {
+    line-height: 32px;
+    background: #e4e4e4;
+    color: #333;
+    font-size: 14px;
+    padding: 0
+}
+
+.mlisttab table {
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    background: #fff
+}
+
+.mlisttab table th {
+    padding: 0 5px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #e4e4e4;
+    font-weight: 400
+}
+
+.mlisttab table td {
+    padding: 4px 5px;
+    color: #999
+}
+
+.mt32e, .mt32e a {
+    color: #f66
+}
+
+.mlisttab table td.lf4 {
+    background: #f4f4f4;
+    padding-left: 10px;
+    text-align: left
+}
+
+.mt32e {
+    line-height: 32px;
+    font-size: 14px;
+    background: #f4f4f4;
+    padding: 6px 10px;
+    text-align: right
+}
+
+.mt32e img {
+    width: 12px;
+    height: 16px;
+    vertical-align: middle;
+    margin-top: -4px;
+    margin-right: 4px
+}
+
+.btn-cal {
+    margin: 0 auto;
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #df3031;
+    color: #fff !important
+}
+
+.detailPage{
+    border-left: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.detailPage::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 5px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+.detailPage::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: #535353;
+}
+.detailPage::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    background: #EDEDED;
+}
+
+.houseCal{
+    border-left: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+}
+
+
+.calculatorhead {
+    height: 40px;
+    _height: 40px;
+    position: relative;
+}
+
+.calculatorhead div {
+    float: left;
+    height: 39px;
+    color: #333;
+    line-height: 40px;
+    font-size: 16px;
+    padding: 0 16px;
+    margin-right: 12px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border: 1px solid #ddd;
+    border-bottom-style: none;
+}
+
+.calculatorhead .on {
+    height: 40px;
+    _height: 41px;
+    padding: 0 17px;
+    color: #fff;
+    background-color: #b98660;
+    border-style: none;
+}
+
+.calcontent {
+    margin-bottom: 20px;
+    width: 1178px;
+    background-color: #f9f9f9;
+    border: 1px solid #dcdcdc;
+    border-top: 2px solid #b98660;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.calcontent .calleft {
+    float: left;
+    height: 100%;
+    width: 587px;
+    background-color: #fff;
+    position: relative;
+    border-right: 1px solid #dcdcdc;
+}
+
+.calcontent .calleft .item-mod {
+    color: #333;
+    padding-left: 180px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    margin-top: 20px;
+}
+
+.calcontent .calleft .item-mod .item-label {
+    float: left;
+    width: 112px;
+    color: #666;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    margin-left: -142px;
+    text-align: right;
+}
+
+.calcontent .icon-help {
+    cursor: pointer;
+    margin-right: 10px;
+    vertical-align: -2px;
+    *vertical-align: middle;
+    _margin-top: 13px;
+    _margin-bottom: 13px;
+}
+
+.icon-help {
+    width: 14px;
+    height: 14px;
+    background-position: -16px -129px;
+}
+
+.icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    background-image: url(//pages.anjukestatic.com/usersite/site/img/common/icons-2.0.png);
+    background-repeat: no-repeat;
+}
+
+.calcontent .calleft .item-bot {
+    margin-top: 41px;
+    padding-left: 142px;
+}
+
+
+
+.icon-arrow{
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: -15px;
+    top: 50%;
+    margin-top: -14px;
+    border-left: 15px solid #c9c9c9;
+    border-top: 15px dashed transparent;
+    border-bottom: 15px dashed transparent;
+}
+.icon-arrow span{
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    height: 0;
+    width: 0;
+    left: -16px;
+    top: -15px;
+    border-left: 15px solid #fff;
+    border-top: 15px dashed transparent;
+    border-bottom: 15px dashed transparent;
+}
+
+.calcontent .calleft .item-mod .textbox {
+    top: 4px;
+    height: 32px;
+    width: 270px;
+    float: left;
+    position: relative;
+}
+
+.calcontent .calleft .int-radio {
+    width: 12px;
+    height: 12px;
+    margin-left: 32px;
+    margin-right: 4px;
+    _margin-top: 14px;
+    _margin-bottom: 14px;
+}
+
+.calcontent .calleft .item-mod .textbox input {
+    float: left;
+    width: 244px;
+    height: 30px;
+    line-height: 30px;
+    color: #333;
+    z-index: 2;
+    font-size: 14px;
+    padding: 0 12px;
+    border: 1px solid #e3e3e3;
+    background-color: transparent;
+}
+
+.calcontent .calleft .item-mod .textbox em {
+    _filter: alpha(opacity=0);
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 11px;
+    z-index: 1;
+    color: #999;
+    width: 48px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    text-align: right;
+}
+
+.calcontent .calleft .item-bot .cal-button {
+    display: inline-block;
+    font-size: 16px;
+    color: #fff;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #f60;
+    border-radius: 3px;
+}
+
+.calcontent .calleft .item-bot .cal-reset {
+    color: #333;
+    font-size: 14px;
+    margin-left: 16px;
+}
+
+.calcontent .calright {
+    width: 470px;
+    height: 100%;
+    float: left;
+    padding-left: 61px;
+    position: relative;
+}
+
+.calcontent .calright .default {
+    margin-top: 165px;
+    margin: 120px auto;
+    width: 178px;
+    height: 211px;
+}
+
+
+.calcontent .calright .default i {
+    width: 178px;
+    height: 178px;
+    display: inline-block;
+    background-image: url(../../dist/img/calculator-bg.png);
+}
+
+.calcontent .calright .resultContent {
+    width: 466px;
+    margin: 30px auto;
+}
+
+.calright li.title {
+    margin-top: 32px;
+}
+
+.calright h2 {
+    width: 110px;
+    font-size: 15px;
+    color: #333;
+    font-weight: 700;
+}
+
+.calright li {
+    margin-top: 22px;
+    height: 32px;
+    line-height: 32px;
+}
+
+.calright h3 {
+    width: 155px;
+    margin-right: 5px;
+}
+
+.calright h3 {
+    font-weight: 700;
+    text-align: right;
+    color: #383e4b;
+    float: left;
+    font-size: 14px;
+}
+
+.calright span.on {
+    color: #d64242;
+}
+
+.calright span {
+    /*width: 90px;*/
+    margin-right: 5px;
+}
+.calright span {
+    color: #3c3f46;
+    font-size: 16px;
+    font-family: Microsoft YaHei;
+    font-weight: 700;
+    float: left;
+}
+
+
+.note {
+    color: #b3b6be;
+    margin-top: 60px;
+}
+
